@@ -31,7 +31,7 @@ export const CarList: FC = () => {
 					<ChevronLeft />
 				</Button>
 				<Button
-					disabled={cars && cars?.length <= limit}
+					disabled={cars && cars?.length < limit}
 					onClick={toNextPage}
 				>
 					<ChevronRight />

@@ -8,6 +8,7 @@ import { CarService } from '@/services/service-car'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -18,6 +19,7 @@ import { PickMotor } from './pick-motor'
 import { PickTransmission } from './pick-transmission'
 
 export const AddCarForm: FC = () => {
+	const router = useRouter()
 	const [brandId, setBrandId] = useState<string>('')
 	const [colorId, setColorId] = useState<string>('')
 	const [motorName, setMotorName] = useState<MotorType | null>(null)
@@ -45,6 +47,7 @@ export const AddCarForm: FC = () => {
 			setMotorName(null)
 			setTransmissionName(null)
 			setImage(null)
+			router.replace('/')
 		},
 	})
 

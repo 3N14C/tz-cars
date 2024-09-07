@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { AddCarForm } from './_components/add-car-components/add-car-form'
+import { AddCarForm } from './_components/add-car-form'
 
 interface Props {}
 
