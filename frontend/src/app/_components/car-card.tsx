@@ -29,7 +29,7 @@ export const CarCard: FC<Props> = ({ car }) => {
 			</Link>
 
 			<div className='flex flex-col gap-2'>
-				<p>{car.name}</p>
+				<p>{car.name.slice(0, 10) + '...'} | Год выпуска: {car.year}</p>
 				<p className='font-bold'>{price}</p>
 			</div>
 		</div>

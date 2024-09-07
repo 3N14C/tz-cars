@@ -21,9 +21,6 @@ export const CarList: FC = () => {
 			),
 	})
 
-	console.log('@offset', offset)
-	console.log('@limit', limit)
-
 	return (
 		<div className='flex flex-col gap-4'>
 			<div className='flex items-center gap-4'>
@@ -34,7 +31,7 @@ export const CarList: FC = () => {
 					<ChevronLeft />
 				</Button>
 				<Button
-					disabled={cars && cars?.length < limit}
+					disabled={cars && cars?.length <= limit}
 					onClick={toNextPage}
 				>
 					<ChevronRight />
