@@ -1,23 +1,23 @@
 'use client'
 
 import { InputValidated } from '@/components/input-validated'
+import { Button } from '@/components/ui/button'
 import { MotorType, TransmissionType } from '@/interfaces/interface-car'
 import { addCarSchema } from '@/schemas/schema-add-car'
 import { CarService } from '@/services/service-car'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
+import { Loader2 } from 'lucide-react'
 import { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { PickBrand } from './pick-brand'
 import { PickColor } from './pick-color'
-import { PickMotor } from './pick-motor'
-import { Button } from '@/components/ui/button'
-import { Loader2 } from 'lucide-react'
 import { PickImage } from './pick-image'
+import { PickMotor } from './pick-motor'
 import { PickTransmission } from './pick-transmission'
 
-export const ModalAddCarForm: FC = () => {
+export const AddCarForm: FC = () => {
 	const [brandId, setBrandId] = useState<string>('')
 	const [colorId, setColorId] = useState<string>('')
 	const [motorName, setMotorName] = useState<MotorType | null>(null)
@@ -101,8 +101,6 @@ export const ModalAddCarForm: FC = () => {
 				disabled={motorName !== MotorType.ELECTRIC}
 				label='Запас хода (км)'
 				placeholder='...'
-				// {...register('reserve')}
-				// error={errors.reserve?.message}
 				className=''
 			/>
 
@@ -135,7 +133,7 @@ export const ModalAddCarForm: FC = () => {
 			<Button
 				disabled={isPending}
 				type='submit'
-				className='z-40'
+				className='py-7'
 			>
 				{isPending ? <Loader2 className='animate-spin' /> : 'Добавить'}
 			</Button>
