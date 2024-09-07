@@ -1,0 +1,20 @@
+model Car {
+  id String @id @default(cuid())
+
+  name         String  @unique
+  price        Int
+  year         String
+  img          String
+  motor        String
+  transmission String?
+  reserve      String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  brand   Brand  @relation(fields: [brandId], references: [id])
+  brandId String
+
+  color   Color  @relation(fields: [colorId], references: [id])
+  colorId String
+}
